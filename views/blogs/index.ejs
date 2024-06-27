@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head.ejs') %>
+
+<body>
+   
+  <%- include('../partials/nav.ejs') %>
+
+
+
+  <section id="features">
+    <h1 id="all-blogs">All Blogs</h1>
+  </section>
+
+
+    <div class="three-container">
+        <% if (blogs.length > 0) { %>
+        <div class="row">
+            <% blogs.forEach((blog, index) => { %>
+
+            <div class="boxes" data-doc="<%= blog._id %>">
+
+                <div>
+                    <img class="three-img" src="data:blog/<%=blog.img.contentType%>;base64,
+                    <%=blog.img.data.toString('base64')%>" alt="blog-img">
+                </div>
+
+                <div class="ts">
+                    <h6 class="title"><%= blog.title %></h6>
+                    <p class="content"><%= blog.snippet %></p>
+                </div>
+
+                <div class="but">
+                    <a class="delete" href="/blogs/<%= blog._id %>">View Blog</a>
+                </div>
+
+            </div>
+            
+            <% if ((index + 1) % 3 === 0) { %>
+                </div><div class="row">
+            <% } %>
+            <% }) %>
+        </div>
+        <% } else { %>
+        <p>There are no blogs to display...</p>
+        <% } %>
+    </div>
+  
+
+
+</body>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded' , function(){
+            const anchorLinks = document.querySelectorAll('nav a[href^="#"]');
+            for(let link of anchorLinks){
+                link.addEventListener('click',function(e){
+                    e.preventDefault();
+                    const target =document.querySelector(this.getAttribute('href'));
+                    const offsetTop = target.offsetTop;
+
+                    window.scrollTo({
+                        top:offsetTop,
+                        behavior:'smooth',
+                        duration:100,
+                    });
+                });
+            }
+        });
+    </script>
+
+
+</html>

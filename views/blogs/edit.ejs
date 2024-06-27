@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head.ejs') %>
+<body>
+
+    <%- include('../partials/nav.ejs') %>
+
+  <section id="features">
+    <h1>Edit Blog</h1>
+  </section>
+
+  <div class="centre-box">
+    <form class="centre" method="POST" action="/blogs/<%= blog._id %>">
+      <div class="indivitual">
+        <p class="question">Edit Blog Title</p>
+        <input type="text" name="title" class="input-box" value="<%= blog.title %>" required>
+      </div>
+      <div class="indivitual">
+        <p class="question">Edit Blog Subtitle</p>
+        <input type="text" name="snippet" class="input-box" value="<%= blog.snippet %>" required>
+      </div>
+      <div class="indivitual">
+        <p class="question">Edit Blog Content</p>
+        <textarea type="text" name="body" class="bigmsg" required><%= blog.body %></textarea>
+      </div>
+      <div class="but">
+        <button type="submit" class="delete">Update Blog</button>
+      </div>
+    </form>
+  </div>
+
+</body>
+</html>

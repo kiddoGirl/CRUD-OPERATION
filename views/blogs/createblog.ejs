@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head.ejs') %>
+
+    <script>
+        function handleFileSelect(event){
+            const file = event.target.files[0];
+            const reader = new FileReader();
+
+            reader.onload=function(event){
+                const image = document.getElementById('selected-image');
+                image.src=event.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+    </script>
+
+
+<body>
+    
+
+    <%- include('../partials/nav.ejs') %>
+
+
+    <section id="features">
+        <h1>Create your own Blog</h1>
+    </section>
+
+    <div class="centre-box">
+        <form class="centre" method="POST" action="/"  enctype="multipart/form-data">
+            <div class="indivitual">
+                <p class="question">Set your background image</p>
+                <label for="image-input" class="custom-file-input">Select an Image</label>
+                <input type="file" name="image" id="image-input" accept="image/*" onchange="handleFileSelect(event)">
+               <img id="selected-image" src="#" />
+            </div>
+
+            <div class="indivitual">
+                <p class="question">Set your Blog Title Name</p>
+                <input type="text" name="title" class="input-box" required>
+            </div>
+
+            <div class="indivitual">
+                <p class="question">Set your Blog Sub Title Name</p>
+                <input type="text" name="snippet" class="input-box" required>
+            </div>
+
+            <div class="indivitual">
+                <p class="question">Description of Your Blog</p>
+                <textarea type="text" name="body" class="bigmsg" required></textarea>
+            </div>
+
+            <div class="but">
+                <button type="submit" class="delete" onclick="myfunction()">Submit</button>
+            </div>
+
+        </form>
+    </div>
+
+    <script>
+        function myfunction(){
+            alert('Do you want to submit the Blog');
+        }
+    </script>
+
+    
+
+
+
+</body>
+</html>
