@@ -10,7 +10,13 @@ This is a CRUD blog application built with EJS, CSS, Node.js, Express.js, and Mo
 - Robust backend with Node.js and Express.js
 - MongoDB for database management
 
-##Install dependencies
+## Install dependencies
 
 ```sh
 npm install
+
+## Start the server
+
+```sh
+node app.js
+
