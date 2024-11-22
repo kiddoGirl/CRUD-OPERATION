@@ -23,5 +23,6 @@
     "node": "^20.4.0",
     "nodemon": "^3.0.1"
   },
-  "description": ""
+  "description": "This is a CRUD blog application built with EJS, CSS, Node.js, Express.js, and MongoDB. Users can create, read, update, and delete blogs seamlessly. The application features a responsive design, dynamic content rendering, and robust database integration.",
+  "keywords": []
 }
